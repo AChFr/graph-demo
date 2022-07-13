@@ -1,0 +1,10 @@
+version: "3"
+services:
+
+  mongoapi:
+    image: mongo:latest
+    container_name: mongoapi
+    volumes:
+      - ./database/data/db:/database/data/db
+    ports:
+      - 27017:27017
