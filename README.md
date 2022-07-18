@@ -16,11 +16,12 @@ the client runs on `localhost:3000`, the server `localhost:5005`, while the data
 |GET|   localhost:3000/	|   redirects to login page	|  
 |POST|    localhost:3000/login		|   log in as a user	|  
 |POST|   localhost:3000/register		|   sign in a a user	|  
-|GET|   localhost:3000/user		|   shows two graphs*	|  
+|GET|   localhost:3000/user		|   shows two options	|  
+|GET|   localhost:3000/user/nice	|    redirects to charts done with ChartJS	|  
+|GET|   localhost:3000/user/ugly	|   redirects to charts done with Recharts	|  
 
 
 
-Right now there are severe performance issues. The takes a lot of time to load, sometimes it appears to hung up(its not the case).
-Further optimisation is required. Since I dont know the math and logic behind the graph, some of its values are hardcoded.
-The code responsible for the graph can be commented out to disable it and for performance sake. 
-On the otherhand, each point on the graph is accessible by the user(the performance issues stem from here, since its more a series of points rather then a "line")
+The rechart option is mor complete in terms of data rendering. It allows for reference lines and reference dots. The downsides are the lack of aesthetic configuration and the data input format. It requires to parse the huge JSON and it takes quite some time. This problem may be solved by sending the data cwith the correct format from the server.
+
+the ChartJS option allows for far greater visual custumization at rhe cost of inferior functionality. No reference lines, dots or segments. ou either priovide the complete dataset or you can not drow a line between two points. On the other hand, the input format is much friendly, so no performance issues. 
